@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link type="text/css" rel="stylesheet" href="/static/main.css" />
+  <title>Simple Blog</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css"
+    integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+    integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js"
+    integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK"
+    crossorigin="anonymous"></script>
+  <script src="https://use.fontawesome.com/03447723b9.js"></script>
+</head>
+<body>
+  <div class="container">
+    <header class="header clearfix">
+      <nav>
+        <ul class="nav navbar-nav float-xs-right">
+
+          {% if user %}
+
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="javascript:void(0)"
+                id="navbarDropdownMenuLink" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Welcome, {{user.name}}
+              </a>
+              <div class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="/blog/newpost">Add Post</a>
+                <a class="dropdown-item" href="/logout">Logout</a>
+               
+              </div>
+            </li>
+
+          {% else %}
+
+            <li class="nav-item">
+              <a class="nav-link" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/signup">Signup</a>
+            </li>
+
+
+          {% endif %}
+
+        </ul>
+      </nav>
+      <h3 class="text-muted"><a href="/">Simple Blog</a></h3>
+    </header>
+
+    <div id="content">
+
+    {% block content %}
+    {% endblock %}
+    <div>
+      <a href="#">Developed By  &copy; islam Ahmed </a>
+    </div>
+
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,114 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if post %}
+
+    <div class="post">
+      <div class="post-heading">
+        <div class="post-title">
+          {{post.subject}}
+          {% if post.user_id == uid %}
+            /
+            <a href="/delete/{{post.key().id()}}">
+              <button><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+            </a>
+            /
+            <a href="/edit/{{post.key().id()}}">
+              <button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+            </a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="post-content">
+        {{post.render_text() | safe}}
+      </div>
+      
+    </div>
+
+    <div class="post-credit">
+        <i class="fa fa-thumbs-up"></i>
+        {% if (post.likes|length) > 1 %}
+          {{post.likes|length}} Likes
+        {% else %}
+          {{post.likes|length}} Like
+        {% endif %}
+        |
+        <i class="fa fa-user"></i> by {{post.user_name}}
+        | <i class="fa fa-clock-o"></i> {{post.created.strftime("%b %d, %Y")}}
+      </p>
+    </div>
+    {% if uid %}
+    <div class="row post-comment-wrapper">
+      <div class="col-md-6">
+        <h4>Add a comment:</h4>
+          <div class="post-comment">
+            <form method="post">
+              <textarea name="content"
+                placeholder="Comment on this post" required></textarea>
+                <a href="/like/{{post.key().id()}}">
+                <button type="button" class="btn btn-success green">
+                  {{likeStatus}} 
+                  </button>
+                </a>  
+                <button type="submit" class="btn btn-success green">
+                <i class="fa fa-share"></i> Comment
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+    {% endif %}
+
+    <h4>Comments</h4>
+    <hr>
+
+    {% if comments.count() != 0 %}
+      {% for comment in comments %}
+        <div id="comment-list" class="row">
+          <div class="col-sm-1">
+            <img class="img-thumbnail" src="/img/avatar.png">
+          </div>
+
+          <div class="col-sm-11">
+            <div class="card card-block">
+              <div class="card-heading">
+                <div class="comment-user row">
+                  <div class="col-sm-8">
+                    <i class="fa fa-user"></i>
+                    <strong> {{comment.user_name}}</strong> |
+                      <i class="fa fa-clock-o"></i>
+                      {{comment.created.strftime("%b %d, %Y")}}
+                  </div>
+                  <div class="col-sm-4 text-xs-right">
+                    {% if comment.user_id == uid %}
+                      <a href="/delete-comment/{{comment.key().id()}}">
+                        <button><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+                       </a>
+                       |
+                      <a href="/edit-comment/{{comment.key().id()}}">
+                      <button><i class="fa fa-pencil-square-o" aria-hidden="true"></i></button>
+                      </a>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                {{comment.render_text() | safe}}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      {% endfor %}
+    {% else %}
+      No comment
+    {% endif %}
+
+  </div>
+
+  {% endif %}
+
+{% endblock %}

@@ -1,0 +1,161 @@
+body {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+
+.error {
+    color: red;
+}
+
+input[type=submit] {
+  font-size: 24px;
+}
+
+.post + .post {
+    margin-top: 15px;
+}
+
+.post-heading {
+    position: relative;
+    border-bottom: 3px solid #666;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.post-date {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    color: #999;
+
+}
+
+.post-content {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.header {
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: .05rem solid #e5e5e5;
+}
+
+.post-comment-wrapper {
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.post-comment {
+  background: none repeat scroll 0 0 #f5f5f5;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.post-comment form textarea,
+.post-comment form input
+{
+  background: none repeat scroll 0 0 #fff;
+  border: medium none;
+  -webkit-border-radius: 4px 4px 0 0;
+  -moz-border-radius: 4px 4px 0 0;
+  -ms-border-radius: 4px 4px 0 0;
+  -o-border-radius: 4px 4px 0 0;
+  border-radius: 4px 4px 0 0;
+  color: #777777;
+  font-size: 14px;
+  letter-spacing: 0.3px;
+  width: 100%;
+  resize:vertical;
+  outline:none;
+  border: 1px solid #F2F2F2;
+}
+
+.post-comment form input {
+  padding: 10px 20px;
+}
+
+.post-comment form textarea {
+  padding: 20px;
+  height: 142px;
+}
+
+.post-comment form button {
+  margin: 5px 10px 10px 10px;
+}
+
+.thumbnail {
+    padding:0px;
+}
+
+#comment-list .card {
+	position:relative;
+}
+
+#comment-list .card .card-heading {
+  color: #333;
+  background-color: #f5f5f5;
+  border-color: #ddd;
+}
+
+#comment-list .card.card-block{
+  padding: 0;
+}
+
+#comment-list .card.card-block .card-heading,
+#comment-list .card.card-block .card-body
+{
+  padding: 1rem;
+}
+
+#comment-list .card .card-heading:after,
+#comment-list .card .card-heading:before
+{
+	position:absolute;
+	top:11px;left:-16px;
+	right:100%;
+	width:0;
+	height:0;
+	display:block;
+	content:" ";
+	border-color:transparent;
+	border-style:solid solid outset;
+	pointer-events:none;
+}
+
+#comment-list .card .card-heading:after {
+	border-width:7px;
+	border-right-color:#f7f7f7;
+	margin-top:1px;
+	margin-left:2px;
+}
+
+#comment-list .card .card-heading:before {
+	border-right-color:#ddd;
+	border-width:8px;
+}
+
+#home-page .post-content {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.form-signin {
+  max-width: 330px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+.form-signin button {
+  margin-top: 10px;
+}

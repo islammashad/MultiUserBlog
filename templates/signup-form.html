@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <div class="container">
+    <h2 class="form-signup-heading"><center>Sign up</center></h2><hr>
+    <form method="post">
+      <div class="form-group row">
+        <label for="inputUsername" class="col-sm-3 col-form-label">
+          Username
+        </label>
+        <div class="col-sm-9">
+          <input type="text" class="form-control" placeholder="Username"
+            name="username" value="{{username}}" required>
+          <div class="error">
+            {{error_username}}
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="inputPassword" class="col-sm-3 col-form-label">
+          Password
+        </label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control" placeholder="Password"
+            name="password" required>
+          <div class="error">
+            {{error_password}}
+          </div>
+        </div>
+
+      </div>
+      <div class="form-group row">
+        <label for="inputVerify" class="col-sm-3 col-form-label">
+          Verify password
+        </label>
+        <div class="col-sm-9">
+          <input type="password" class="form-control"
+            placeholder="Verify password" name="verify" required>
+          <div class="error">
+            {{error_verify}}
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="inputEmail" class="col-sm-3 col-form-label">
+          Email (optional)
+        </label>
+        <div class="col-sm-9">
+          <input type="email" class="form-control" placeholder="Email">
+          <div class="error">
+            {{error_email}}
+          </div>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="offset-sm-3 col-sm-9">
+          <button type="submit" class="btn btn-success btn-block">Signup</button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+{% endblock %}

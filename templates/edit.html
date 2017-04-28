@@ -1,0 +1,80 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if error %}
+
+    <div>
+      <div class="alert alert-danger" role="alert">
+        {{ error }}
+      </div>
+      <a href="javascript:history.back()">Go Back</a>
+    </div>
+
+  {% else %}
+    {% if post %}
+
+      <div class="container">
+        <h2>Edit post</h2>
+        <form method="post">
+          <div class="form-group row">
+            <label for="inputSubject" class="col-sm-2 col-form-label">
+              Subject
+            </label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" placeholder="Subject"
+              name="subject" value="{{post.subject}}" required>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="inputContent" class="col-sm-2 col-form-label">
+              Content
+            </label>
+            <div class="col-sm-10">
+              <textarea type="text" class="form-control" placeholder="Content"
+                name="content" value="{{post.content}}"
+                required>{{post.content}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+              <div class="error">{{error}}</div>
+              <button type="submit" class="btn btn-success">Save</button>
+              <a href="/blog/{{post.key().id()}}" type="submit" class="btn">
+                Cancel
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    {% elif comment %}
+
+      <div class="container">
+        <h2>Edit comment</h2>
+        <form method="post">
+          <div class="form-group row">
+            <label for="inputContent" class="col-sm-2 col-form-label">
+              Content
+            </label>
+            <div class="col-sm-10">
+              <textarea type="text" class="form-control" placeholder="Content"
+                name="content" value="{{comment.content}}"
+                required>{{comment.content}}</textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="offset-sm-2 col-sm-10">
+              <div class="error">{{error}}</div>
+              <button type="submit" class="btn btn-success">Save</button>
+              <a href="/blog/{{comment.parent_id}}" type="submit" class="btn">
+                Cancel
+              </a>
+            </div>
+          </div>
+        </form>
+      </div>
+
+    {% endif %}
+  {% endif %}
+{% endblock %}

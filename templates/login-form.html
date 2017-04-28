@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+  {% if alert %}
+    <div class="alert alert-info" role="alert">
+      {{alert}}
+    </div>
+  {% endif %}
+  <form class="form-signin" method="post">
+    <h2 class="form-signin-heading"> <center>login</center></h2>
+    <hr>
+     <label for="inputUsername" class="col-sm-3 col-form-label">
+          Username
+        </label>
+     <input type="text" name="username" class="form-control"
+      placeholder="Username" value="{{username}}" required autofocus>
+
+      <label for="inputPassword" class="col-sm-3 col-form-label">
+          Password
+        </label>
+      <input type="password" class="form-control" placeholder="Password"
+      name="password" required>
+      <div class="error">
+      {{error}}
+      </div>
+      <button class="btn btn-lg btn-success btn-block" type="submit">
+      Login
+      </button>
+  </form>
+
+{% endblock %}
